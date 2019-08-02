@@ -1,4 +1,5 @@
 import UiHelper from "./uiHelper";
+const Mustache = require("mustache");
 
 var Wasabee = window.plugin.Wasabee;
 
@@ -29,46 +30,23 @@ export class MarkerDialog {
     var self = this;
     this._target = null;
     this._operation = operation;
-    this._type = $("<select>");
-    Wasabee.alertTypes.forEach(a => {
-      self._type.append(
-        $("<option>")
-          .val(a.name)
-          .text(a.label)
-      );
-    });
-    this._type.val(Wasabee.Constants.DEFAULT_ALERT_TYPE);
-    this._comment = $("<input>").attr("placeholder", "comment");
+    this._container = $(
+      Mustache.render(require("./html/markerDialog.mustache"), {
+        alertTypes: Wasabee.alertTypes
+      })
+    );
+    this._targetMenu = new Wasabee.OverflowMenu();
+    this._targetMenu.button.firstElementChild.textContent = "\u25bc";
+    this._container.find("overflow-menu").append(this._targetMenu.button);
+    this._type = this._container.find("#markerType");
+    this._comment = this._container.find("#comment");
     /*  Uncomment this when adding specific targetting to agents
         this._agent = $('<select class="wasabee-agentselect"></select>').css({
           width : "100%",
           boxSizing : "border-box"
         });
         */
-    var $element = $("<div>")
-      .addClass("wasabee-targetselect")
-      .text("To: ");
-    this._targetLink = $("<strong>")
-      .text("(not set)")
-      .appendTo($element);
-    $("<button>")
-      .text("set")
-      .click(() => self.setTarget(UiHelper.getSelectedPortal()))
-      .appendTo($element);
-    this._targetMenu = new Wasabee.OverflowMenu();
-    this._targetMenu.button.firstElementChild.textContent = "\u25bc";
-    $element.append(this._targetMenu.button);
-    this._container = $("<div />")
-      .append(
-        $("<div>")
-          .addClass("flex")
-          .append(this._type)
-          .append(this._comment)
-      )
-      .append(document.createTextNode(" "))
-      .append(this._agent)
-      .append($element);
-    $element.hide(); //TODO remove this when create link alert added
+
     this._type.change(() => {
       //console.log("Changed to type -> " + self._type.val())
       /*
@@ -80,7 +58,6 @@ export class MarkerDialog {
             }
             */
     });
-    this._type.change();
     this._dialog = window.dialog({
       title: this._operation.name + " Markers",
       dialogClass: "wasabee-dialog-alerts",

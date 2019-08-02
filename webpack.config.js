@@ -24,6 +24,10 @@ module.exports = {
       {
         test: /\.html$/,
         use: ["to-string-loader", "html-loader"]
+      },
+      {
+        test: /\.mustache$/,
+        use: ["to-string-loader", "html-loader"]
       }
       // {
       //   test:  /\.ts$/,

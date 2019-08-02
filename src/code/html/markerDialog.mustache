@@ -1,0 +1,15 @@
+<div>
+    <div flex>
+        <select id="markerType">
+            {{#alertTypes}}
+            <option value="{{name}}" {{#default}}selected="selected"{{/default}}>{{label}}</option>
+            {{/alertTypes}}
+        </select>
+        <input id="comment" placeholder="comment"></input>
+    </div>
+    <div class="wasabee-targetselect" style="display: none;">
+        To: <strong>(not set)</strong>
+        <button>set</button>
+        <overflow-menu/>
+    </div>
+</div>

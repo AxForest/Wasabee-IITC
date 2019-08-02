@@ -29,7 +29,8 @@ export default function() {
       name: Wasabee.Constants.MARKER_TYPE_DESTROY,
       label: "destroy",
       color: "#CE3B37",
-      markerIcon: Wasabee.static.images.marker_alert_destroy
+      markerIcon: Wasabee.static.images.marker_alert_destroy,
+      default: true
     },
     {
       name: Wasabee.Constants.MARKER_TYPE_VIRUS,
