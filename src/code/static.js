@@ -7,7 +7,8 @@ Wasabee.static = {
   CSS: {
     example: require("./css/styles.css"),
     ui: require("./css/ui.css"),
-    main: require("./css/main.css")
+    main: require("./css/main.css"),
+    leafletdraw: require("./css/leaflet.draw.css")
   },
   images: {
     toolbar_addlinks: require("./images/toolbar_addlinks.png"),
@@ -18,6 +19,9 @@ Wasabee.static = {
     toolbar_download: require("./images/toolbar_download.png"),
     toolbar_delete: require("./images/toolbar_delete.png"),
     toolbar_plus: require("./images/toolbar_plus.png"),
+    toolbar_wasabeebutton_in: require("./images/toolbar_wasabeebutton_in.png"),
+    toolbar_wasabeebutton_out: require("./images/toolbar_wasabeebutton_out.png"),
+    toolbar_quickdraw: require("./images/toolbar_quickdraw.png"),
     toolbar_settings: require("./images/toolbar_settings.png"),
     marker_layer_main: require("./images/marker_layer_main.png"),
     marker_layer_groupa: require("./images/marker_layer_groupa.png"),
@@ -25,16 +29,15 @@ Wasabee.static = {
     marker_layer_groupc: require("./images/marker_layer_groupc.png"),
     marker_layer_groupd: require("./images/marker_layer_groupd.png"),
     marker_layer_groupe: require("./images/marker_layer_groupe.png"),
-    marker_layer_groupf: require("./images/marker_layer_groupf.png"),
-    marker_alert_destroy: require("./images/marker_alert_destroy.png"),
-    marker_alert_virus: require("./images/marker_alert_virus.png"),
-    marker_alert_decay: require("./images/marker_alert_decay.png"),
-    marker_alert_key: require("./images/marker_alert_key.png"),
-    marker_alert_link: require("./images/marker_alert_link.png"),
-    marker_alert_meetagent: require("./images/marker_alert_meetagent.png"),
-    marker_alert_other: require("./images/marker_alert_other.png"),
-    marker_alert_recharge: require("./images/marker_alert_recharge.png"),
-    marker_alert_upgrade: require("./images/marker_alert_upgrade.png")
+    marker_layer_groupf: require("./images/marker_layer_groupf.png")
+  },
+  dialogNames: {
+    linkDialogButton: "wasabee-addlinks",
+    markerButton: "wasabee-marker",
+    mustauth: "wasabee-mustauth",
+    newopButton: "wasabee-newop",
+    opsButton: "wasabee-operations",
+    wasabeeButton: "wasabee-userinfo"
   }
   // Other static data, like: LocalStorage keys, encoded images, texts etc.
 };

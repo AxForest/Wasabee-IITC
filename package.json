@@ -7,6 +7,8 @@
     "@babel/preset-env": "^7.5.4",
     "@types/jquery": "^3.3.30",
     "@types/mustache": "^0.8.32",
+    "@types/leaflet": "^0.7.32",
+    "@types/leaflet-draw": "^1.0.0",
     "css-loader": "^3.0.0",
     "del": "^3.0.0",
     "eslint": "^5.0.0",
